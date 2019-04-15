@@ -229,7 +229,7 @@
 		FA4145303F340FC3675AABA5 /* PolylinesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolylinesViewController.m; sourceTree = "<group>"; };
 		FAF7CEAC34C5EBC5F05412EC /* GradientPolylinesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientPolylinesViewController.h; sourceTree = "<group>"; };
 		FC2C54DF6BAAE16F877D8A66 /* AnimatedUIViewMarkerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimatedUIViewMarkerViewController.h; sourceTree = "<group>"; };
-		FC5AD93CD72DE8F5B004A621 /* BasicMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicMapViewController.m; sourceTree = "<group>"; };
+		FC5AD93CD72DE8F5B004A621 /* BasicMapViewController.m */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = BasicMapViewController.m; sourceTree = "<group>"; tabWidth = 2; };
 		FCA64CCA86165B04BDDE0A93 /* SDKDemoAPIKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKDemoAPIKey.h; sourceTree = "<group>"; };
 		FFEED4DDB04F69C84A1924F1 /* mapstyle-night.json */ = {isa = PBXFileReference; lastKnownFileType = text; path = "mapstyle-night.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -477,6 +477,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				TargetAttributes = {
+					F934453EF090BCCB93E78E83 = {
+						DevelopmentTeam = 44VB8K32J3;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = 80C3BB6A64A9375104C7ACB9 /* Build configuration list for PBXProject "GoogleMapsDemos" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -563,7 +569,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-GoogleMapsDemos/Pods-GoogleMapsDemos-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-GoogleMapsDemos/Pods-GoogleMapsDemos-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -572,7 +578,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoogleMapsDemos/Pods-GoogleMapsDemos-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GoogleMapsDemos/Pods-GoogleMapsDemos-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B7239434225611D785C4A029 /* [CP] Check Pods Manifest.lock */ = {
@@ -651,13 +657,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ./GoogleMapsDemos/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = (
 					.,
 					"$(SDKROOT)/System/Library/Frameworks",
 				);
 				PRODUCT_NAME = GoogleMapsDemos;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				USE_HEADERMAP = NO;
@@ -669,6 +678,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INTERMEDIATE_DIR = "$(PROJECT_DERIVED_FILE_DIR)/$(CONFIGURATION)";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				SDKROOT = iphoneos;
 				SHARED_INTERMEDIATE_DIR = "$(SYMROOT)/DerivedSources/$(CONFIGURATION)";
 			};

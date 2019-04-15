@@ -22,13 +22,14 @@
 
 @implementation BasicMapViewController {
   UILabel *_statusLabel;
+  GMSCircle *_circle;
 }
 
 - (void)viewDidLoad {
   [super viewDidLoad];
   GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.868
                                                           longitude:151.2086
-                                                               zoom:6];
+                                                               zoom:14];
   GMSMapView *view = [GMSMapView mapWithFrame:CGRectZero camera:camera];
   view.delegate = self;
   self.view = view;
@@ -42,6 +43,19 @@
   _statusLabel.textAlignment = NSTextAlignmentCenter;
 
   [view addSubview:_statusLabel];
+  
+  CLLocationCoordinate2D circleCoordinate = CLLocationCoordinate2DMake(-33.868, 151.2086);
+  _circle = [GMSCircle circleWithPosition:circleCoordinate radius:5];
+  _circle.fillColor = [UIColor blueColor];
+  _circle.strokeColor = [UIColor greenColor];
+  _circle.strokeWidth = 2;
+  _circle.map = view;
+}
+
+- (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
+  CLLocationDistance scale = 1.0 / [mapView.projection pointsForMeters:1.0 atCoordinate:position.target];
+  CLLocationDistance radius = (position.zoom / 2.5) * scale;
+  _circle.radius = radius;
 }
 
 - (void)mapViewDidStartTileRendering:(GMSMapView *)mapView {
